@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Mundializzard</title>
+</head>
+
+<body>
+    <div id="start-container">
+        <div class="title"><img src="./assets/logo-l.png" alt="Mundializzard" height="70px" /></div>
+        <div class="wallpaper"><img src="./assets/wallpapers/theme-2.png" alt="Fondo Mundializzard" /></div>
+            
+        <div class="start-buttons-container">
+            <button id="start-button">Iniciar AR</button>
+            <button id="guide-1-button" class="info-button">Guía</button>
+        </div>
+
+    </div>
+
+    <div id="ui-container" class="hidden">
+        <div id="watermark">
+            <img src="./assets/logo.png" alt="Mundializzard" height="80px"/>
+        </div>
+        <div class="ui-buttons">
+            <button id="guide-2-button" class="info-button">?</button>
+            <button id="back-button" title="Regresar">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                        stroke-width="4" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <div class="info-modal hidden" id="info-modal">
+        <div class="info-content">
+            <span class="close-button" id="close-info-button">&times;</span>
+            <h2 class="title">Guía de Usuario</h2>
+            <p>1. Presiona el botón "Iniciar AR" para comenzar la experiencia de realidad aumentada.</p>
+            <p>2. Permite el acceso a la cámara cuando se te solicite.</p>
+            <p>3. Escanea las imágenes objetivo (el emblema o la bandera del equipo) para ver contenido
+                interactivo.</p>
+            <p>4. Interactúa con los botones que aparecen junto a cada imagen objetivo para acceder a estadísticas,
+                videos y más.</p>
+            <p>5. Presiona el botón de regresar (flecha) para volver al menú principal en cualquier momento.</p>
+            <p>¡Disfruta explorando el Mundial con Mundializzard!</p>
+            <small class="info-footer">para más, consulta el <a href="#">Manual de Usuario</a></small>
+        </div>
+
+    </div>
+
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: false;" color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+
+        <a-assets>
+            <img id="mexicoTexture" src="./assets/mexico.png">
+            <img id="logoTexture" src="./assets/worldcup-logo.png">
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity class="marker" mindar-image-target="targetIndex: 0">
+            <a-image src="#mexicoTexture" rotation="90 0 0" scale="0.5 0.5 0.5"></a-image>
+        </a-entity>
+        <a-entity class="marker" mindar-image-target="targetIndex: 1">
+            <a-image src="#logoTexture" rotation="90 0 0" scale="0.5 0.5 0.5"></a-image>
+        </a-entity>
+    </a-scene>
+
+    <template id="mexico-buttons">
+        <button>Estadísticas de México</button>
+        <button>Videos de Goles</button>
+    </template>
+    <template id="logo-buttons">
+        <button>Historia del Mundial</button>
+        <button>Trivia General</button>
+    </template>
+</body>
+
+</html>
