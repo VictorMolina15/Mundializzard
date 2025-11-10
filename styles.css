@@ -1,243 +1,614 @@
-/* Estilos para el botón de inicio */
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Impact', sans-serif;
+/* Estilos Globales (Mobile-First) */
+:root {
+    --color-primario: #ecf023; 
+    --color-secundario: #7bff61;
+    --color-fondo: #1a1a2e;
+    --color-texto: #f4f4f4;
+    --color-navbar: #0f141f;
+    --color-card: #162447;
+    --color-borde: #2c4174;
+    --sombra-card: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.info-footer{
-  display: block;
-  text-align: end;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}   
+
+html{
+    scroll-behavior: smooth;
 }
 
-a {
-  color: #ffae00;
-  text-decoration: none;
-}
-a:hover {
-  color: #d37f00;
-}
-
-.title {
-  color: #237ab4;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    padding-bottom: 80px;
+    
 }
 
-.wallpaper img {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.7;
-}
-
-#watermark {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 8px;
-  pointer-events: none;
-  opacity: 0.6;
-}
-
-#start-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0, 0, 0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 28px;
-  z-index: 20;
-}
-
-  
-#start-container .title{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  padding: 15px;  
-  background: #000000be;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  color: rgb(255, 255, 255);
-}
-
-.start-buttons-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-#start-button {
-  padding: 15px;
-  width: 200px;
-  height: 80px;
-  font-size: 28px;
-  background-color: #7ed957;
-  color: white;
-  border: 5px solid #4CAF50;
-  border-radius: 5px;
-  cursor: pointer;
-}
-#start-button:hover {
-  background-color: #45a049;
-}
-
-.ui-buttons {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-  display: flex;
-  gap: 10px;
-}
-
-.info-button {
-  font-size: 24px;
-  font-family: 'Impact', sans-serif;
-  background-color: #195b86;
-  color: white;
-  border: 5px solid #004080;
-  cursor: pointer;
-  z-index: 11;
-  
-}
-.info-button:hover {
-  background-color: #0b3d66;
-}
-
-#guide-1-button{
-  width: 200px;
-  height: 60px;
-  border-radius: 5px;
-  z-index: 10;
-}
-
-#guide-2-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  opacity: 0.8;
-  z-index: 10;
-}
-
-#info-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-  max-width: 90%;
-  max-height: 80%;
-  overflow-y: auto;
-}
-#close-info-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #ffae00;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-#close-info-button:hover {
-  background-color: #d37f00;
-}
-
-
-#back-button {
-  font-size: 16px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border: 5px solid #1e7e34;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 11;
-  opacity: 0.8;
-}
-#back-button:hover {
-  background-color: #1e7e34;
-}
-
-#ui-container {
-  position: fixed;
-  z-index: 10;
-  display: flex;
-  gap: 10px;
-}
 .hidden {
-  display: none !important; 
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    display: none !important;
 }
 
-@media screen and (max-width: 600px) {
-  h2{
-    font-size: 20px;
-    font-weight: normal;
-  }
-  p {
-    font-size: 16px;
-  }
-  small, small * {
-  font-size: 12px;
-  }
-
-  #start-container .title img {
-    height: 35px;
-  }
-
-  #info-modal {
-    width: 95%;
-    max-height: 70%;
-    font-size: 14px;
-  }
+/* Contenedor Principal */
+.container {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-@media screen and (min-width: 601px) {
-  h2{
-    font-size: 28px;
-    font-weight: normal;
-  }
-  p{
-    font-size: 24px;
-  }
-  small, small * {
-  font-size: 16px;
-  }
+/* Encabezado y Logo */
+.main-header {
+    background-color: var(--color-navbar);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: var(--sombra-card);
+}
+.logo {
+    max-width: 150px;
+    height: auto;
+}
 
-  #start-container .title img {
-    height: 70px;
-  }
-  #info-modal {
-    max-width: 60%;
-    max-height: 80%;
-    font-size: 18px;
-  }
+
+.help-button {
+    background: none;
+    border: none;
+    color: var(--color-primario);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 0.25rem;
+}
+
+.help-button:hover {
+    color: #003a7c;
+}
+
+/* ============================================= */
+/* ESTILOS DEL NAVBAR INFERIOR (NUEVO)           */
+/* ============================================= */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background-color: var(--color-navbar);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--color-borde);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
+    z-index: 1000; /* Asegura que esté encima de todo */
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1; /* Ocupa espacio equitativo */
+    text-decoration: none;
+    color: #888;
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+}
+
+.nav-link span {
+    font-size: 1.5rem; /* Tamaño del emoji */
+    margin-bottom: 2px;
+}
+
+.nav-link:hover,
+.nav-link.active { /* 'active' es solo un placeholder visual */
+    color: var(--color-primario);
+}
+
+
+/* ============================================= */
+/* ESTILOS DEL MODAL DE AYUDA (NUEVO)            */
+/* ============================================= */
+
+.instructions-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.instructions-list li {
+    margin-bottom: 1.25rem;
+}
+
+.instructions-list strong {
+    font-size: 1.1rem;
+    color: var(--color-primario);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.instructions-list p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: var(--color-blanco);
+    line-height: 1.5;
+}
+
+/* Botón Principal de AR (Call to Action) */
+.ar-section {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+}
+.ar-section h2 {
+    margin-bottom: 0.5rem;
+}
+.ar-section p {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-card);
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 5px 15px rgba(242, 255, 65, 0.4);
+}
+.cta-button:hover, .cta-button:focus {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 65, 108, 0.5);
+}
+.cta-button .material-symbols-outlined {
+    margin-right: 0.5rem;
+    vertical-align: bottom; 
+    font-size: 1.55em;
+}
+
+/* Tarjetas de Contenido (Trivia, Videos, Stats) */
+.content-card {
+    background-color: var(--color-card);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    box-shadow: var(--sombra-card);
+}
+.content-card h2 {
+    color: var(--color-secundario);
+    margin-bottom: 0.5rem;
+}
+.content-card p {
+    margin-bottom: 1rem;
+}
+
+/* Estilos de botones dentro de las tarjetas */
+.card-button {
+    padding: 0.6rem 1rem;
+    border: none;
+    background-color: var(--color-primario);
+    color: var(--color-card);
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.card-button:hover {
+    opacity: 0.7;
+}
+
+/* Modal de Trivia */
+.modal-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    background: var(--color-navbar);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+}
+.modal-close:hover {
+    color: var(--color-texto);
+}
+
+#question-counter {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #b3b3b3;
+    margin-bottom: 1rem;
+}
+
+#question-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    min-height: 50px; /* Evita saltos de layout */
+}
+
+#answer-options button {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-texto);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+    border: 2px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: var(--color-card);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#answer-options button:hover {
+    opacity: 0.8;
+}
+
+/* Clases para feedback de respuesta */
+#answer-options button.correct {
+    background-color: #d4edda; /* Verde */
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+#answer-options button.incorrect {
+    background-color: #f8d7da; /* Rojo */
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+#answer-options button:disabled {
+    cursor: not-allowed; /* Evita doble clic */
+}
+
+/* Resultados */
+#trivia-results {
+    padding: 1rem;
+}
+#trivia-results h2 {
+    margin-bottom: 1rem;
+}
+#score-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================= */
+/* ESTILOS DE LA LISTA DE ESTADÍSTICAS           */
+/* ============================================= */
+
+#stats-list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas en móvil */
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.team-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background: var(--color-fondo);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.team-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-card);
+}
+
+.team-item img {
+    width: 30px;
+    height: 20px; /* Proporción de bandera */
+    object-fit: cover;
+    margin-right: 0.75rem;
+    border: 1px solid #ddd;
+}
+
+/* Para pantallas más grandes, 3 columnas */
+@media (min-width: 600px) {
+    #stats-list-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* ============================================= */
+/* ESTILOS DEL MODAL DE ESTADÍSTICAS             */
+/* ============================================= */
+
+#stats-modal-header {
+    text-align: center;
+    border-bottom: 2px solid var(--color-texto);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+#stats-team-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+#stats-team-name {
+    font-size: 1.5rem;
+    color: var(--color-primario);
+    margin: 0;
+}
+
+#stats-modal-body {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+#stats-modal-body li {
+    font-size: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-borde);
+    display: flex;
+    justify-content: space-between;
+}
+
+#stats-modal-body li:last-child {
+    border-bottom: none;
+}
+
+#stats-modal-body li strong {
+    color: #b3b3b3;
+    margin-right: 1rem;
+}
+
+#stats-modal-body li span {
+    font-weight: 600;
+    color: var(--color-texto);
+    text-align: right;
+}
+
+/* ============================================= */
+/* ESTILOS DEL CARRUSEL DE VIDEOS              */
+/* ============================================= */
+
+.video-carousel-wrapper {
+    position: relative;
+    margin-top: 1rem;
+    overflow: hidden; /* Oculta el scrollbar pero permite el deslizamiento */
+}
+
+.video-carousel {
+    display: flex;
+    overflow-x: scroll; /* Permite el scroll horizontal */
+    scroll-snap-type: x mandatory; /* Para que se detenga en cada tarjeta */
+    -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
+    padding-bottom: 1rem; /* Espacio para la sombra o el scrollbar */
+}
+
+.video-card {
+    flex: 0 0 90%; /* Ocupa el 90% del ancho del contenedor en móvil */
+    max-width: 320px; /* Límite de ancho para la tarjeta */
+    margin-right: 1rem; /* Espacio entre tarjetas */
+    background: var(--color-fondo);
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+    overflow: hidden;
+    scroll-snap-align: start; /* Alinea al inicio al hacer snap */
+    position: relative;
+    display: flex; /* Para el filtro */
+    flex-direction: column; /* Para el filtro */
+}
+
+.video-card:last-child {
+    margin-right: 0; /* Sin margen al final */
+}
+
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-info {
+    padding: 1rem;
+    text-align: left;
+}
+
+.video-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-primario);
+}
+
+.video-info p {
+    font-size: 0.85rem;
+    color: #919191;
+    margin-bottom: 0;
+}
+
+/* Flechas de Navegación del Carrusel */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--color-blanco);
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.carousel-nav:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-nav.prev {
+    left: 10px;
+}
+
+.carousel-nav.next {
+    right: 10px;
+}
+
+/* Ocultar flechas en pantallas pequeñas si no se necesitan */
+@media (max-width: 600px) {
+    .carousel-nav {
+        display: none;
+    }
+}
+
+/* Ajuste de ancho de tarjeta para pantallas más grandes */
+@media (min-width: 600px) {
+    .video-card {
+        flex: 0 0 calc(50% - 0.5rem); /* Dos columnas con un pequeño espacio */
+        margin-right: 1rem;
+        max-width: none; /* Quitamos el límite para que use el 50% */
+    }
+    .video-carousel {
+        padding-bottom: 0; /* No necesitamos padding si no hay scrollbar visible */
+    }
+}
+
+@media (min-width: 900px) {
+    .video-card {
+        flex: 0 0 calc(33.333% - 0.666rem); /* Tres columnas */
+    }
+}
+
+
+/* ============================================= */
+/* ESTILOS DE FILTROS DE VIDEO (CSS Filters)   */
+/* ============================================= */
+
+.video-filters {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+}
+
+.video-filters label {
+    margin-right: 0.5rem;
+    font-weight: 500;
+    color: var(--color-texto);
+}
+
+.video-filters select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Clases de filtro aplicadas al iframe */
+iframe.filter-sepia {
+    filter: sepia(100%);
+}
+
+iframe.filter-grayscale {
+    filter: grayscale(100%);
+}
+
+iframe.filter-cinematic {
+    /* Combinación para un look más "cinemático" */
+    filter: contrast(1.1) brightness(0.9) saturate(0.8) hue-rotate(-5deg);
+}
+
+/* Asegurarse de que el filter se aplique al iframe directamente */
+.video-card iframe {
+    transition: filter 0.3s ease; /* Transición suave al aplicar/quitar filtro */
+}
+
+/* Placeholders para contenido */
+.video-placeholder, .stats-placeholder {
+    background-color: var(--color-fondo);
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: #888;
+}
+
+/* Pie de Página */
+.main-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.8rem;
+    color: #999;
 }

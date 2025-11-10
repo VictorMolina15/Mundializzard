@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar/dist/mindar-image-aframe.prod.js"></script>
+
+  <script src="ar_script.js" defer></script>
+  <link rel="stylesheet" href="ar_styles.css">
+</head>
+
+<body>
+  
+  <div id="infoBox" class="hidden">
+    <h2 id="infoBoxTeamName">Nombre del Equipo</h2>
+    <p id="infoBoxTeamInfo">Aquí va la información relevante del equipo.</p>
+  </div>
+
+  <button id="danceButton" class="hidden">¡Baila!</button>
+
+  <div id="watermark">
+    <img src="./assets/logo.png" alt="Mundializzard" height="80px" />
+  </div>
+
+  <button id="back-button" title="Regresar">
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" stroke="currentColor" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </span>
+  </button>
+
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind; maxTrack: 1;" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <a-assets>
+      <a-asset-item id="lizzard-modelo" src="assets/3D Model/Lizzard.glb"></a-asset-item>
+
+      <img id="tex-argentina" src="assets/jerseys/argentina.png">
+      <img id="tex-australia" src="assets/jerseys/australia.png">
+      <img id="tex-brasil" src="assets/jerseys/brasil.png">
+      <img id="tex-canada" src="assets/jerseys/canada.png">
+      <img id="tex-ecuador" src="assets/jerseys/ecuador.png">
+      <img id="tex-eua" src="assets/jerseys/eua.png">
+      <img id="tex-iran" src="assets/jerseys/iran.png">
+      <img id="tex-japon" src="assets/jerseys/japon.png">
+      <img id="tex-jordania" src="assets/jerseys/jordania.png">
+      <img id="tex-mexico" src="assets/jerseys/mexico.png">
+      <img id="tex-nueva-zelanda" src="assets/jerseys/nueva_zelanda.png">
+      <img id="tex-surcorea" src="assets/jerseys/surcorea.png">
+      <img id="tex-uzbekistan" src="assets/jerseys/uzbekistan.png">
+      
+    </a-assets>
+
+    <!-- Argentina (targets 0,1,2) -->
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-argentina" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <a-entity mindar-image-target="targetIndex: 1">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-argentina" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <a-entity mindar-image-target="targetIndex: 2">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-argentina" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+     <!-- Australia (targets 3,4,5)-->
+    <a-entity mindar-image-target="targetIndex: 3">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-australia" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+   
+    <a-entity mindar-image-target="targetIndex: 4">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-australia" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 5">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-australia" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Brasil (targets 6,7,8) -->
+    <a-entity mindar-image-target="targetIndex: 6">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-brasil" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <a-entity mindar-image-target="targetIndex: 7">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-brasil" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <a-entity mindar-image-target="targetIndex: 8">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-brasil" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Canada (targets 9,10,11)-->
+    <a-entity mindar-image-target="targetIndex: 9">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-canada" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    
+    <a-entity mindar-image-target="targetIndex: 10">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-canada" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <a-entity mindar-image-target="targetIndex: 11">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+        set-jersey="texture: #tex-canada" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Ecuador (targets 12,13,14) -->
+    <a-entity mindar-image-target="targetIndex: 12">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-ecuador" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 13">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-ecuador" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 14">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-ecuador" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- EUA (targets 15,16,17) -->
+    <a-entity mindar-image-target="targetIndex: 15">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-eua" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 16">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-eua" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 17">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-eua" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Iran (targets 18,19,20) -->
+    <a-entity mindar-image-target="targetIndex: 18">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-iran" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 19">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-iran" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 20">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-iran" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Japón (targets 21,22,23) -->
+    <a-entity mindar-image-target="targetIndex: 21">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-japon" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 22">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-japon" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 23">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-japon" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Jordania (targets 24,25,26) -->
+    <a-entity mindar-image-target="targetIndex: 24">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-jordania" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 25">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-jordania" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 26">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-jordania" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- México (targets 27,28,29) -->
+    <a-entity mindar-image-target="targetIndex: 27">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-mexico" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 28">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-mexico" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 29">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-mexico" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Nueva Zelanda (targets 30,31,32) -->
+    <a-entity mindar-image-target="targetIndex: 30">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-nueva-zelanda" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 31">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-nueva-zelanda" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 32">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-nueva-zelanda" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Sur Corea (targets 33,34,35) -->
+    <a-entity mindar-image-target="targetIndex: 33">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-surcorea" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 34">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-surcorea" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 35">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-surcorea" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+    <!-- Uzbekistán (targets 36,37,38) -->
+    <a-entity mindar-image-target="targetIndex: 36">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-uzbekistan" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 37">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-uzbekistan" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+    <a-entity mindar-image-target="targetIndex: 38">
+      <a-gltf-model class="lizzard-model" src="#lizzard-modelo" position="0 -0.2 0" scale="10.0 10.0 10.0"
+      set-jersey="texture: #tex-uzbekistan" animation-mixer="clip: Idle; loop: repeat" rotation="1 0 0">
+      </a-gltf-model>
+    </a-entity>
+
+  </a-scene>
+</body>
+
+</html>

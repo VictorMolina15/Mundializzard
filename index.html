@@ -1,89 +1,168 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundializzard 2026</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>Mundializzard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
-    <div id="start-container">
-        <div class="title"><img src="./assets/logo-l.png" alt="Mundializzard" height="70px" /></div>
-        <div class="wallpaper"><img src="./assets/wallpapers/theme-2.png" alt="Fondo Mundializzard" /></div>
+
+    <header class="main-header">
+        <img src="assets/logo-l.png" alt="Logo Mundializzard" class="logo">
+    </header>
+
+    <main class="container">
+
+        <section class="ar-section">
+            <h2>Experiencia AR</h2>
+            <p>Escanea el logo de tu equipo favorito y descubre una sorpresa.</p>
+            <a href="ar.html" class="cta-button">
+                <span class="material-symbols-outlined">photo_camera</span> Encender Cámara
+            </a><br>
+            <button id="help-button" class="help-button">¿Cómo funciona?</button>
+
+        </section>
+
+        <section id="trivia" class="content-card">
+            <h2>Trivia del Mundial</h2>
+            <p>¿Cuánto sabes de la copa del mundo? ¡Ponte a prueba!</p>
+            <button id="start-trivia-button" class="card-button">Jugar Trivia</button>
+        </section>
+
+        <div id="trivia-modal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="modal-close">&times;</span>
+
+                <div id="trivia-content">
+                    <div id="question-counter">Pregunta 1 / 5</div>
+                    <p id="question-text">¿Cuál es la pregunta?</p>
+                    <div id="answer-options">
+                    </div>
+                </div>
+
+                <div id="trivia-results" class="hidden">
+                    <h2>¡Juego Terminado!</h2>
+                    <p id="score-text">Tu puntuación: 4 de 5</p>
+                    <button id="restart-trivia-button" class="card-button">Jugar de Nuevo</button>
+                </div>
+
+            </div>
+        </div>
+
+        <section id="videos" class="content-card">
+            <h2>Mejores Momentos</h2>
+            <p>Revive los goles y jugadas legendarias de las naciones mundialistas.</p>
+
+            <div class="video-carousel-wrapper">
+                <div id="video-carousel" class="video-carousel">
+                </div>
+                <button class="carousel-nav prev">&lt;</button>
+                <button class="carousel-nav next">&gt;</button>
+            </div>
+
+            <div class="video-filters">
+                <label for="filter-select">Aplicar filtro:</label>
+                <select id="filter-select">
+                    <option value="default">Normal</option>
+                    <option value="sepia">Sepia</option>
+                    <option value="grayscale">Blanco y Negro</option>
+                    <option value="cinematic">Cinemático</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="stats" class="content-card">
+            <h2>Estadísticas</h2>
+            <p>Analiza el desempeño histórico de tu equipo.</p>
+            <div id="stats-list-container">
+            </div>
+        </section>
+
+        <div id="stats-modal" class="modal-overlay">
+            <div class="modal-content">
+                <span id="stats-modal-close" class="modal-close">&times;</span>
+
+                <div id="stats-modal-content">
+                    <div id="stats-modal-header">
+                        <img id="stats-team-logo" src="" alt="Logo del Equipo" />
+                        <h2 id="stats-team-name">Nombre del Equipo</h2>
+                    </div>
+                    <ul id="stats-modal-body">
+                        <li>
+                            <strong>Confederación:</strong>
+                            <span id="stats-confederation"></span>
+                        </li>
+                        <li>
+                            <strong>Títulos Mundiales:</strong>
+                            <span id="stats-titles"></span>
+                        </li>
+                        <li>
+                            <strong>Participaciones:</strong>
+                            <span id="stats-participations"></span>
+                        </li>
+                        <li>
+                            <strong>Máximo Goleador:</strong>
+                            <span id="stats-top-scorer"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="help-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="help-modal-close" class="modal-close">&times;</span>
             
-        <div class="start-buttons-container">
-            <button id="start-button">Iniciar AR</button>
-            <button id="guide-1-button" class="info-button">Guía</button>
-        </div>
-
-    </div>
-
-    <div id="ui-container" class="hidden">
-        <div id="watermark">
-            <img src="./assets/logo.png" alt="Mundializzard" height="80px"/>
-        </div>
-        <div class="ui-buttons">
-            <button id="guide-2-button" class="info-button">?</button>
-            <button id="back-button" title="Regresar">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-                        stroke-width="4" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </span>
-            </button>
+            <h2>¿Cómo usar la Realidad Aumentada?</h2>
+            
+            <ol class="instructions-list">
+                <li>
+                    <strong>1. Abre la Cámara:</strong>
+                    <p>Presiona el botón "Encender Cámara" y Acepta los permisos en caso de que se soliciten.</p>
+                </li>
+                <li>
+                    <strong>2. Escanea un Logo:</strong>
+                    <p>Apunta tu cámara al logo/bandera de uno de los equipos participantes.</p>
+                </li>
+                <li>
+                    <strong>3. ¡Descubre y Baila!:</strong>
+                    <p>Verás aparecer un modelo 3D. ¡Presiona el botón "Baila!" para ver una animación aleatoria!</p>
+                </li>
+            </ol>
+            
         </div>
     </div>
 
-    <div class="info-modal hidden" id="info-modal">
-        <div class="info-content">
-            <span class="close-button" id="close-info-button">&times;</span>
-            <h2 class="title">Guía de Usuario</h2>
-            <p>1. Presiona el botón "Iniciar AR" para comenzar la experiencia de realidad aumentada.</p>
-            <p>2. Permite el acceso a la cámara cuando se te solicite.</p>
-            <p>3. Escanea las imágenes objetivo (el emblema o la bandera del equipo) para ver contenido
-                interactivo.</p>
-            <p>4. Interactúa con los botones que aparecen junto a cada imagen objetivo para acceder a estadísticas,
-                videos y más.</p>
-            <p>5. Presiona el botón de regresar (flecha) para volver al menú principal en cualquier momento.</p>
-            <p>¡Disfruta explorando el Mundial con Mundializzard!</p>
-            <small class="info-footer">para más, consulta el <a href="#">Manual de Usuario</a></small>
-        </div>
+    </main>
 
-    </div>
+    <nav class="bottom-nav">
+    <a href="#" class="nav-link active">
+        <span class="material-symbols-outlined">home</span>
+        Inicio
+    </a>
+    <a href="#trivia" class="nav-link">
+        <span class="material-symbols-outlined">quiz</span>
+        Trivia
+    </a>
+    <a href="#videos" class="nav-link">
+        <span class="material-symbols-outlined">play_circle</span>
+        Videos
+    </a>
+    <a href="#stats" class="nav-link">
+        <span class="material-symbols-outlined">bar_chart</span>
+        Stats
+    </a>
+</nav>
 
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: false;" color-space="sRGB"
-        renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false">
+    <footer class="main-footer">
+        <p>Proyecto "Procesamiento de Imágenes" 2025 - Victor Molina</p>
+    </footer>
 
-        <a-assets>
-            <img id="mexicoTexture" src="./assets/mexico.png">
-            <img id="logoTexture" src="./assets/worldcup-logo.png">
-        </a-assets>
-
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-        <a-entity class="marker" mindar-image-target="targetIndex: 0">
-            <a-image src="#mexicoTexture" rotation="90 0 0" scale="0.5 0.5 0.5"></a-image>
-        </a-entity>
-        <a-entity class="marker" mindar-image-target="targetIndex: 1">
-            <a-image src="#logoTexture" rotation="90 0 0" scale="0.5 0.5 0.5"></a-image>
-        </a-entity>
-    </a-scene>
-
-    <template id="mexico-buttons">
-        <button>Estadísticas de México</button>
-        <button>Videos de Goles</button>
-    </template>
-    <template id="logo-buttons">
-        <button>Historia del Mundial</button>
-        <button>Trivia General</button>
-    </template>
+    <script src="script.js"></script>
 </body>
 
 </html>
